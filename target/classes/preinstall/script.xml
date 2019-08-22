@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence>1</sequence>
+<name>Create Table</name>
+<description>This will create new table</description>
+<sql>
+	<ddl></ddl>
+	<dml></dml>
+</sql>
+</xml>
