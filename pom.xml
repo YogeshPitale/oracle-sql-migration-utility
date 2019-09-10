@@ -4,7 +4,7 @@
   <artifactId>dbautomation</artifactId>
   <version>0.0.1</version>
   <name>Database Automation</name>
-  <description>This project is will transfer changes from one database to other</description>
+  <description>This project is will transfer objects from one database to other</description>
   <packaging>jar</packaging>
   <properties>
   	 <mockito.version>2.23.0</mockito.version>
@@ -28,9 +28,7 @@
 		<dependency>
 		    <groupId>com.oracle</groupId>
 		    <artifactId>ojdbc</artifactId>
-		    <version>14</version>
-		    <scope>system</scope>
-		    <systemPath>${basedir}/lib/ojdbc8.jar</systemPath> <!-- must match file name -->
+		    <version>8</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/net.sf.dozer/dozer -->
 		<dependency>
@@ -72,14 +70,14 @@
 		        <artifactId>junit-jupiter-engine</artifactId>
 		        <version>5.2.0</version>
 		        <scope>test</scope>
-		    </dependency>		   				
+		    </dependency>
+		    <dependency>
+			  <groupId>us.fatehi</groupId>
+			  <artifactId>schemacrawler-oracle</artifactId>
+			  <version>16.1.2</version>
+			</dependency>  				
   </dependencies>
   <build>
-  <resources>
-  	<resource>
-  		<directory>src/main/deployments</directory>
-  	</resource>
-  </resources>
   <plugins>
   	<plugin>
 	    <groupId>org.apache.maven.plugins</groupId>
@@ -105,8 +103,14 @@
 		<configuration>
 			<archive>
 		        <manifest>
-		          <mainClass>com.avaya.dbautomation.DeployDatabaseChanges</mainClass>
+		          <mainClass>org.dbautomation.DeployDatabaseChanges</mainClass>
 		        </manifest>
+		        <manifest>
+		          <mainClass>org.dbautomation.MigrateObjects</mainClass>
+		        </manifest>
+		        <manifestEntries>
+		          <Class-Path>.</Class-Path> <!-- HERE IS THE IMPORTANT BIT -->
+		        </manifestEntries>
 		      </archive>
 		       <descriptorRefs>
 			      <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -123,7 +127,7 @@
 		  </executions>
   	</plugin>
   </plugins>
-  	<finalName>dbautomation</finalName>
+  	<finalName>migrato</finalName>
  </build>
 
 </project>

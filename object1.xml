@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<migration>
+    <objects>
+        <type>FUNCTION</type>
+        <values>FUNCTION1;FUNCTION2;</values>
+    </objects>
+    <objects>
+        <type>PROCEDURE</type>
+        <values>PROCEDURE1;</values>
+    </objects>
+    <objects>
+        <type>PACKAGE</type>
+        <values></values>
+    </objects>
+    <objects>
+        <type>TYPE</type>
+        <values></values>
+    </objects>
+    <objects>
+        <type>TRIGGER</type>
+        <values></values>
+    </objects>
+</migration>
